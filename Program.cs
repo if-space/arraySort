@@ -1,35 +1,34 @@
-﻿using System;
+using System;
 using System.Security.Cryptography;
 
 namespace Lessons
 {
-    class Programm
+    class Program
     {
         static void Main(string[] args)
         {
             int[] numbers = new int[20];
             int minValue = 0;
             int maxValue = 100;
-            int step = 1;
 
-            Random value = new Random();
+            Random random = new Random();
 
             for (int i = 0; i < numbers.Length; i++)
             {
-                numbers[i] = value.Next(minValue, maxValue);
+                numbers[i] = random.Next(minValue, maxValue + 1);
             }
 
             Console.WriteLine($"Массив до сортировки: {string.Join(" ", numbers)}");
 
-            for (int i = 0; i < numbers.Length; i++) 
+            for (int i = 0; i < numbers.Length; i++)
             {
-                for (int j = 0; j < numbers.Length - 1; j++) 
+                for (int j = 0; j < numbers.Length - 1; j++)
                 {
-                    if (numbers[j] > numbers[j + step])
+                    if (numbers[j] > numbers[j + 1])
                     {
                         int temp = numbers[j];
-                        numbers[j] = numbers[j + step];
-                        numbers[j + step] = temp;
+                        numbers[j] = numbers[j + 1];
+                        numbers[j + 1] = temp;
                     }
                 }
             }
